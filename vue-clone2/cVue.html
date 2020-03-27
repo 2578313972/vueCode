@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="cVue1.js"></script>
+    <script src="cVue2.js"></script>
+    <script>
+        let cil = new cVue({
+            el:"#main",
+            data:{
+                name:"huilong",
+                age:24,
+                status:{
+                    weight:80,
+                    height:160
+                }
+            },
+            created() {
+                this.name = "富康"
+                this.status.height = 165
+            }
+        })
+        cil.data.name = 55
+    </script>
+</body>
+</html>
