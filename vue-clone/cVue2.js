@@ -3,7 +3,7 @@ class cVue2{
         this.el = document.querySelector(el)
         this.vm = vm
         if(this.el){
-            console.log(this.el)
+            // console.log(this.el)
             this.nodeEl = this.cloneEl(this.el)
             this.compile(this.nodeEl)
             this.el.appendChild(this.nodeEl)
@@ -23,9 +23,22 @@ class cVue2{
             if(el.nodeType===1){ // 节点
                 console.log(el+"为节点",el)
             }else if(el.nodeType===3 && /\{\{(.*)\}\}/.test(el.textContent)){ // 文本
-                console.log(el+"为文本")
+                this.upText(el)
             }
-            if(el.childNodes) this.compile(el)
+            if(el.childNodes.length>0) this.compile(el)
         })
+    }
+    upText(el){
+        this.upData(el,this.vm,RegExp.$1,"text")
+    }
+    upData(el,vm,parm,text){
+        const cilom = this[text+"Updata"]
+        cilom(el,vm[parm])
+        new watch(vm,parm,function(val){
+            cilom(el,val)
+        })
+    }
+    textUpdata(el,val){
+        el.textContent = val
     }
 }
