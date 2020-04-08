@@ -8,7 +8,15 @@
 <body>
     <div id="main">
         <p>aa{{name}}</p>
-        <p>{{age}}</p>
+        <span style="color: red;" k-text="name">{{age}}</span>
+        <p>aa{{name}}</p>
+        <span style="color: red;" k-text="name">{{age}}</span>
+        <span k-html="html"></span>
+        <span k-html="html"></span>
+        <span k-html="html"></span>
+        <span k-html="html"></span>
+        <span k-html="html"></span>
+        <span k-html="html"></span>
     </div>
 
 
@@ -20,6 +28,7 @@
             data:{
                 name:"慧龙",
                 age:24,
+                html:"<h1>HTML</h1>",
                 status:{
                     weight:80,
                     height:160

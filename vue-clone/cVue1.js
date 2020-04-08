@@ -25,9 +25,8 @@ class cVue{
         const depend = new Depend()
         Object.defineProperty(obj,key,{
             get(){
-                console.log(Depend.target,'----------------')
+                // console.log(Depend.target,'----------------')
                 Depend.target && depend.addDep(Depend.target)
-                // console.log(1111)
                 return val
             },
             set(newVal){
